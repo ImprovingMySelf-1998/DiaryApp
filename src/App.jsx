@@ -17,6 +17,7 @@ function App() {
   function handleSignUp() {
     setIsSignUp(true);
     setIsLoggedIn(false);
+    setIsNavbar(true);
   }
 
   function handleReturnMainPage() {
@@ -32,7 +33,7 @@ function App() {
       dashboardNavbar={isNavbar}
     />
   ) : isSignUp ? (
-    <SignUp onReturn={handleReturnMainPage} onLogin={handleLogin}/>
+    <SignUp onReturn={handleReturnMainPage} onLogin={handleLogin} dashboardNavbar={isNavbar}/>
   ) : (
     <HomePage
       onLogin={handleLogin}

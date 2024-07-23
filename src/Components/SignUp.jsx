@@ -1,6 +1,8 @@
-import React, { useState,useRef } from "react";
-import Modal from "./Modal";
+import React, { useRef, useState } from "react";
 import Input from "./Input";
+import Modal from "./Modal";
+import DashBoard from "./DashBoard";
+
 function SignUp(props) {
   const [showPassword, setShowPassword] = useState(false);
   function handleShowPassword() {
@@ -29,12 +31,15 @@ function SignUp(props) {
 
   const dashBoard= props.dashboardNavbar;
 
-
   return (
     <React.Fragment>
       {!isLoggedInDashBoard && (
         <React.Fragment>
-          <Modal ref={modal}></Modal>
+          <Modal ref={modal} className="p-2 text-center backdrop:bg-black backdrop:bg-opacity-40 rounded-md">
+            <div className="mb-2">
+              <p className="text-gray-500 font-bold text-3xl">Please fill all fields</p>
+            </div>
+          </Modal>
           <div className="flex w-screen justify-center h-screen items-center">
             <div className="p-7 bg-white rounded-lg shadow-lg">
               <div className="flex flex-col gap-3">
@@ -54,17 +59,17 @@ function SignUp(props) {
                     className="bg-[#4caf50] w-full h-full text-white font-sans py-2 uppercase rounded-md"
                     onClick={handleLogin}
                   >
-                    Login
+                    SignUp
                   </button>
                 </div>
                 <div>
                   <p>
-                    Already Account ?{" "}
+                    Create Account Today?{" "}
                     <strong
                       className="text-blue-500 uppercase cursor-pointer visited:text-pink-500"
                       onClick={props.onLogin}
                     >
-                      Sign In
+                      Login
                     </strong>
                   </p>
                   <p className="text-center">OR</p>
@@ -85,7 +90,8 @@ function SignUp(props) {
         </React.Fragment>
       )}
       {isLoggedInDashBoard && <DashBoard showNavbar={dashBoard} onReturn={props.onReturn}/>}
-    </React.Fragment>  );
+    </React.Fragment>
+  );
 }
 
 export default SignUp;

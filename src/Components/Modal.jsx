@@ -12,7 +12,7 @@ const Modal = forwardRef(function Modal(props, ref) {
     <dialog ref={dialog} className={props.className}>
       {props.children}
       <form method="dialog">
-        <button>Close</button>
+        <button className="bg-red-400 p-2 rounded-md text-white mt-2">Close</button>
       </form>
     </dialog>,
     document.getElementById("modal-root")

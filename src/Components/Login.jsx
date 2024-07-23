@@ -29,13 +29,17 @@ function Login(props) {
     }
   }
 
-  const dashBoard= props.dashboardNavbar;
+  const dashBoard = props.dashboardNavbar;
 
   return (
     <React.Fragment>
       {!isLoggedInDashBoard && (
         <React.Fragment>
-          <Modal ref={modal}></Modal>
+          <Modal ref={modal} className="p-2 text-center backdrop:bg-black backdrop:bg-opacity-40 rounded-md">
+            <div className="mb-2">
+              <p className="text-gray-500 font-bold text-3xl">Please fill all fields</p>
+            </div>
+          </Modal>
           <div className="flex w-screen justify-center h-screen items-center">
             <div className="p-7 bg-white rounded-lg shadow-lg">
               <div className="flex flex-col gap-3">
@@ -85,7 +89,9 @@ function Login(props) {
           </div>
         </React.Fragment>
       )}
-      {isLoggedInDashBoard && <DashBoard showNavbar={dashBoard} onReturn={props.onReturn}/>}
+      {isLoggedInDashBoard && (
+        <DashBoard showNavbar={dashBoard} onReturn={props.onReturn} />
+      )}
     </React.Fragment>
   );
 }
