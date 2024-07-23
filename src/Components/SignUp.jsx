@@ -64,7 +64,7 @@ function SignUp(props) {
                 </div>
                 <div>
                   <p>
-                    Create Account Today?{" "}
+                    Already Account?{" "}
                     <strong
                       className="text-blue-500 uppercase cursor-pointer visited:text-pink-500"
                       onClick={props.onLogin}
